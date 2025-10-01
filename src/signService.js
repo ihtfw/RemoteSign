@@ -25,18 +25,10 @@ function runCmd(cmd, args) {
 }
 
 export async function signFile(filePath, originalName) {
-  const dryRun = !!process.env.DRY_RUN;
   const outFile = path.join(
     os.tmpdir(),
     `${Date.now()}-${Math.random().toString(36).slice(2)}-${originalName}`
   );
-  if (dryRun) {
-    // Simulate signing by copying
-    await fs.promises.copyFile(filePath, outFile);
-    const buf = await fs.promises.readFile(outFile);
-    await fs.promises.unlink(outFile).catch(() => {});
-    return buf;
-  }
 
   const baseArgs = [
     "sign",

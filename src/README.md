@@ -28,15 +28,7 @@ Tries sequentially until one succeeds.
 - PKCS11_CERT: PKCS#11 certificate identifier.
 - PKCS11_KEY: PKCS#11 private key identifier.
 - SIGN_URL: Product / company URL.
-- PORT: (optional) default 3000.
-- DRY_RUN: If set, no real signing; file simply copied to simulate success.
-
-## Local Dev (Dry Run)
-
-```
-npm install
-DRY_RUN=1 AUTH_TOKEN=devtoken PKCS11_CERT=dummy PKCS11_KEY=dummy SIGN_URL=https://example.com npm run dev
-```
+- PORT: (optional) default 3000.ccess.
 
 ## Production Run
 

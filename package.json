@@ -1,0 +1,20 @@
+{
+    "name": "remote-sign",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "node src/server.js",
+        "start": "NODE_ENV=production node src/server.js",
+        "test": "jest --runInBand"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "multer": "^1.4.5-lts.1"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "supertest": "^6.3.4"
+    }
+}

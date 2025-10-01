@@ -1,0 +1,20 @@
+{
+    "name": "remote-sign",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "node server.js",
+        "start": "NODE_ENV=production node server.js",
+        "test": "cross-env DRY_RUN=1 AUTH_TOKEN=testtoken PKCS11_CERT=dummy PKCS11_KEY=dummy SIGN_NAME=Test SIGN_URL=https://example.com jest --runInBand"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "multer": "^1.4.5-lts.1"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "jest": "^29.7.0",
+        "supertest": "^6.3.4"
+    }
+}

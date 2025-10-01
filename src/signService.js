@@ -50,8 +50,6 @@ export async function signFile(filePath, originalName) {
     process.env.PKCS11_KEY,
     "-h",
     "sha256",
-    "-n",
-    process.env.SIGN_NAME,
     "-i",
     process.env.SIGN_URL,
     "-in",

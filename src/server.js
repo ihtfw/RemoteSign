@@ -40,13 +40,7 @@ async function processQueue() {
   }
 }
 
-const REQUIRED_ENV = [
-  "AUTH_TOKEN",
-  "PKCS11_CERT",
-  "PKCS11_KEY",
-  "SIGN_NAME",
-  "SIGN_URL",
-];
+const REQUIRED_ENV = ["AUTH_TOKEN", "PKCS11_CERT", "PKCS11_KEY", "SIGN_URL"];
 REQUIRED_ENV.forEach((k) => {
   if (!process.env[k] && !process.env.DRY_RUN) {
     console.warn(`[warn] Missing env var ${k}`);

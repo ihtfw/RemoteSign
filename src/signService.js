@@ -33,7 +33,7 @@ export async function signFile(filePath, originalName) {
   const baseArgs = [
     "sign",
     "-pkcs11engine",
-    "/usr/lib/x86_64-linux-gnu/ossl-modules/pkcs11.so",
+    "/usr/lib/x86_64-linux-gnu/engines-3/pkcs11.so",
     "-pkcs11module",
     "/usr/lib/librtpkcs11ecp.so",
     "-verbose",

@@ -51,13 +51,18 @@ export async function signFile(filePath, originalName) {
     outFile,
   ];
 
-  console.log(`attempt to sign with args:\n${JSON.stringify(baseArgs)}`);
-
   let lastErr;
   for (const tsUrl of TIMESTAMP_URLS) {
     const args = [...baseArgs, "-ts", tsUrl];
     try {
-      await runCmd("osslsigncode", args);
+      console.log(`attempt to sign with args:\n${JSON.stringify(args)}`);
+      const result = await runCmd("osslsigncode", args);
+      if (result?.stdout) {
+        console.log(`osslsigncode output:\n${result.stdout}`);
+      }
+      if (result?.stderr) {
+        console.error(`osslsigncode error output:\n${result.stderr}`);
+      }
       const buf = await fs.promises.readFile(outFile);
       await fs.promises.unlink(outFile).catch(() => {});
       return buf;

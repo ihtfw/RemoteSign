@@ -32,10 +32,11 @@ export async function signFile(filePath, originalName) {
 
   const baseArgs = [
     "sign",
-    "-provider",
+    "-pkcs11engine",
     "/usr/lib/x86_64-linux-gnu/ossl-modules/pkcs11.so",
     "-pkcs11module",
     "/usr/lib/librtpkcs11ecp.so",
+    "-verbose",
     "-pkcs11cert",
     process.env.PKCS11_CERT,
     "-key",
@@ -49,6 +50,8 @@ export async function signFile(filePath, originalName) {
     "-out",
     outFile,
   ];
+
+  console.log(`attempt to sign with args:\n${JSON.stringify(baseArgs)}`);
 
   let lastErr;
   for (const tsUrl of TIMESTAMP_URLS) {
